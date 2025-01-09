@@ -2,6 +2,7 @@ package app.page.examplePage.controllers;
 
 import app.page.examplePage.models.ProductMO;
 import app.page.examplePage.services.ProductService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +17,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("app/page/example")
+@AllArgsConstructor
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
 
 
     @GetMapping("/products")
@@ -33,8 +34,6 @@ public class ProductController {
 
         return ResponseEntity.ok(products);
     }
-
-
 
 
     /** Otra forma de hacer la paginación, eligiendo los datos a mostrar */

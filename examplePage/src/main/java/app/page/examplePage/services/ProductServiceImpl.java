@@ -2,7 +2,7 @@ package app.page.examplePage.services;
 
 import app.page.examplePage.models.ProductMO;
 import app.page.examplePage.repository.ProductJPARepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -10,10 +10,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    private ProductJPARepository repository;
+    private final ProductJPARepository repository;
 
     @Override
     public Page<ProductMO> findAll(Integer page, Integer size, String sort) {
